@@ -38,19 +38,20 @@ FUNCTIONS_SCHEMA = [
             "properties": {
                 "day": {
                     "type": "string",
-                    "description": "Day of the week, e.g. Monday",
+                    "enum": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "description": "Day of the week"
                 },
                 "open": {
                     "type": "string",
-                    "description": "Opening time, e.g., 09:00",
+                    "description": "Opening time, e.g., 09:00"
                 },
                 "close": {
                     "type": "string",
-                    "description": "Closing time, e.g., 19:00",
+                    "description": "Closing time, e.g., 19:00"
                 }
             },
-            "required": ["day", "open", "close"],
-        },
+            "required": ["day", "open", "close"]
+        }
     },
     {
         "name": "is_business_open",
@@ -60,15 +61,15 @@ FUNCTIONS_SCHEMA = [
             "properties": {
                 "current_day": {
                     "type": "string",
-                    "description": "Today's day, e.g. Monday",
+                    "description": "Today's day, e.g. Monday"
                 },
                 "current_time": {
                     "type": "string",
-                    "description": "Current time, e.g. 09:30",
-                },
+                    "description": "Current time, e.g. 09:30"
+                }
             },
-            "required": ["current_day", "current_time"],
-        },
+            "required": ["current_day", "current_time"]
+        }
     }
     # other functions
 ]

@@ -9,8 +9,8 @@ from openai_functions import FUNCTIONS_MAPPING
 load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-MODEL_NAME = "gpt-3.5-turbo-0613"
-MODEL_TEMPERATURE = 0.3
+MODEL_NAME = "gpt-3.5-turbo-0125"
+MODEL_TEMPERATURE = 0.0
 FUNCTION_CALL = "auto"
 
 
@@ -99,7 +99,7 @@ async def send_user_message(message):
 def start_chat():
     cl.user_session.set(
         "message_history",
-        [{"role": "system", "content": "You are a helpful AI assistant called Nat"}],
+        [{"role": "system", "content": "You are a helpful AI assistant called Nat. Your role is to schedule calls."}],
     )
 
 
