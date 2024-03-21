@@ -99,7 +99,7 @@ async def send_user_message(message):
 def start_chat():
     cl.user_session.set(
         "message_history",
-        [{"role": "system", "content": "You are a helpful AI assistant"}],
+        [{"role": "system", "content": "You are a helpful AI assistant called Nat"}],
     )
 
 
@@ -147,12 +147,12 @@ async def run_conversation(user_message: str):
             await process_function_call(function_name, arguments, message_history)
 
             function_response = message_history[-1]
-            # await cl.Message(
-            #     author=function_name,
-            #     content=str(function_response),
-            #     language="json",
-            #     indent=1,
-            # ).send()
+            await cl.Message(
+                author=function_name,
+                content=str(function_response),
+                language="json",
+                indent=1,
+            ).send()
 
             cur_iter += 1
         else:

@@ -30,5 +30,45 @@ FUNCTIONS_SCHEMA = [
             "required": ["longitude", "latitude"],
         },
     },
+    {
+        "name": "get_business_hours",
+        "description": "Check or set office opening hours before scheduling appointment",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "day": {
+                    "type": "string",
+                    "description": "Day of the week, e.g. Monday",
+                },
+                "open": {
+                    "type": "string",
+                    "description": "Opening time, e.g., 09:00",
+                },
+                "close": {
+                    "type": "string",
+                    "description": "Closing time, e.g., 19:00",
+                }
+            },
+            "required": ["day", "open", "close"],
+        },
+    },
+    {
+        "name": "is_business_open",
+        "description": "Check if business is open or closed",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "current_day": {
+                    "type": "string",
+                    "description": "Today's day, e.g. Monday",
+                },
+                "current_time": {
+                    "type": "string",
+                    "description": "Current time, e.g. 09:30",
+                },
+            },
+            "required": ["current_day", "current_time"],
+        },
+    }
     # other functions
 ]
